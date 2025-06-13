@@ -31,10 +31,11 @@ const FeaturedProducts: React.FC = () => {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto max-w-5xl">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
+              className="mx-auto w-full max-w-[250px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

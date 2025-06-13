@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
               Crafting luxury fragrances that capture moments, memories, and emotions.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/judi_perfume?utm_source=ig_web_button_share_sheet&igsh=MTh3ZDVjY3EweTQwbQ==" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
                 <Instagram size={20} />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">

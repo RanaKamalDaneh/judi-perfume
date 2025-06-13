@@ -9,13 +9,13 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="group">
+    <div className="group w-full">
       <Link to={`/products/${product.id}`} className="block relative overflow-hidden rounded-lg">
         <div className="aspect-[3/4] bg-gray-100 overflow-hidden">
           <img 
             src={product.images[0]} 
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
         

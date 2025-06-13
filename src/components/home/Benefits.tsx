@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Leaf, Award, Smile } from 'lucide-react';
+import { Leaf, Award, Smile, Truck } from 'lucide-react';
 
 const benefits = [
   {
@@ -17,6 +17,11 @@ const benefits = [
     icon: <Smile className="w-8 h-8 text-gold-600" />,
     title: 'Satisfaction Guaranteed',
     description: "If you're not completely satisfied, we offer hassle-free returns within 30 days.",
+  },
+  {
+    icon: <Truck className="w-8 h-8 text-gold-600" />,
+    title: 'Free Shipping',
+    description: 'On all orders over $100',
   },
 ];
 
@@ -45,7 +50,7 @@ const Benefits: React.FC = () => {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.title}

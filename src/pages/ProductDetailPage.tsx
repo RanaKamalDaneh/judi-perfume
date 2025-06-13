@@ -257,13 +257,13 @@ const ProductDetailPage: React.FC = () => {
             <div className="py-6">
               {activeTab === 'description' && (
                 <div className="prose prose-sm max-w-none text-gray-700">
-                  <p>{product.longDescription || product.description}</p>
+                  <p>{product.description}</p>
                 </div>
               )}
               
               {activeTab === 'ingredients' && (
                 <div className="prose prose-sm max-w-none text-gray-700">
-                  <p>{product.ingredients || 'Ingredients information not available for this product.'}</p>
+                  <p>{(product as any).ingredients || 'Ingredients information not available for this product.'}</p>
                 </div>
               )}
               
@@ -271,15 +271,15 @@ const ProductDetailPage: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-sm font-medium text-gray-900 mb-2">Top Notes</h3>
-                    <p className="text-gray-700">{product.scent.topNotes.join(', ')}</p>
+                    <p className="text-gray-700">{(product.scent as any)?.topNotes?.join(', ') || 'No top notes available'}</p>
                   </div>
                   <div>
                     <h3 className="text-sm font-medium text-gray-900 mb-2">Middle Notes</h3>
-                    <p className="text-gray-700">{product.scent.middleNotes.join(', ')}</p>
+                    <p className="text-gray-700">{(product.scent as any)?.middleNotes?.join(', ') || 'No middle notes available'}</p>
                   </div>
                   <div>
                     <h3 className="text-sm font-medium text-gray-900 mb-2">Base Notes</h3>
-                    <p className="text-gray-700">{product.scent.baseNotes.join(', ')}</p>
+                    <p className="text-gray-700">{(product.scent as any)?.baseNotes?.join(', ') || 'No base notes available'}</p>
                   </div>
                 </div>
               )}

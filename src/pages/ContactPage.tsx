@@ -36,8 +36,7 @@ const ContactPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundColor:"RGB(184, 134, 11)" }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-gray-900"
         >
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         </div>
