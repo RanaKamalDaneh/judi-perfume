@@ -16,6 +16,12 @@ const ProductDetailPage: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('description');
+  const [isWritingReview, setIsWritingReview] = useState(false);
+  const [reviewForm, setReviewForm] = useState({
+    rating: 5,
+    title: '',
+    comment: ''
+  });
   const { addToCart } = useCart();
   
   // Related products (simple implementation)
@@ -251,6 +257,16 @@ const ProductDetailPage: React.FC = () => {
                 >
                   Scent Notes
                 </button>
+                <button
+                  onClick={() => setActiveTab('reviews')}
+                  className={`py-4 text-sm font-medium border-b-2 ${
+                    activeTab === 'reviews' 
+                      ? 'border-gold-600 text-gold-600' 
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  }`}
+                >
+                  Customer Reviews ({product.reviews})
+                </button>
               </nav>
             </div>
             
@@ -281,6 +297,138 @@ const ProductDetailPage: React.FC = () => {
                     <h3 className="text-sm font-medium text-gray-900 mb-2">Base Notes</h3>
                     <p className="text-gray-700">{(product.scent as any)?.baseNotes?.join(', ') || 'No base notes available'}</p>
                   </div>
+                </div>
+              )}
+
+              {activeTab === 'reviews' && (
+                <div className="space-y-8">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-lg font-medium text-gray-900">Customer Reviews</h3>
+                      <p className="text-sm text-gray-500 mt-1">{product.reviews} reviews</p>
+                    </div>
+                    <button
+                      className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+                      onClick={() => setIsWritingReview(!isWritingReview)}
+                    >
+                      {isWritingReview ? 'Cancel Review' : 'Write a Review'}
+                    </button>
+                  </div>
+
+                  {isWritingReview && (
+                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+                      <h4 className="text-lg font-medium text-gray-900 mb-4">Write Your Review</h4>
+                      <form className="space-y-4" onSubmit={(e) => {
+                        e.preventDefault();
+                        alert('Review submission functionality coming soon!');
+                        setIsWritingReview(false);
+                        setReviewForm({ rating: 5, title: '', comment: '' });
+                      }}>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Rating</label>
+                          <div className="flex items-center space-x-1">
+                            {[...Array(5)].map((_, i) => (
+                              <button
+                                key={i}
+                                type="button"
+                                onClick={() => setReviewForm({ ...reviewForm, rating: i + 1 })}
+                                className="focus:outline-none"
+                              >
+                                <Star
+                                  size={24}
+                                  className={i < reviewForm.rating ? "fill-gold-500 text-gold-500" : "text-gray-300"}
+                                />
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <label htmlFor="review-title" className="block text-sm font-medium text-gray-700 mb-2">
+                            Review Title
+                          </label>
+                          <input
+                            type="text"
+                            id="review-title"
+                            value={reviewForm.title}
+                            onChange={(e) => setReviewForm({ ...reviewForm, title: e.target.value })}
+                            placeholder="Summarize your experience"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                            required
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="review-comment" className="block text-sm font-medium text-gray-700 mb-2">
+                            Your Review
+                          </label>
+                          <textarea
+                            id="review-comment"
+                            value={reviewForm.comment}
+                            onChange={(e) => setReviewForm({ ...reviewForm, comment: e.target.value })}
+                            placeholder="Share your thoughts about the product"
+                            rows={4}
+                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gold-500 focus:border-transparent"
+                            required
+                          />
+                        </div>
+
+                        <div className="flex justify-end space-x-3">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setIsWritingReview(false);
+                              setReviewForm({ rating: 5, title: '', comment: '' });
+                            }}
+                            className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            type="submit"
+                            className="px-4 py-2 bg-gray-900 text-white rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+                          >
+                            Submit Review
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  )}
+
+                  {product.reviewsList && product.reviewsList.length > 0 ? (
+                    <div className="space-y-6">
+                      {product.reviewsList.map((review) => (
+                        <div key={review.id} className="border-b border-gray-200 pb-6">
+                          <div className="flex items-center mb-2">
+                            <div className="flex items-center">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  size={16}
+                                  className={i < review.rating ? "fill-gold-500 text-gold-500" : "text-gray-300"}
+                                />
+                              ))}
+                            </div>
+                            {review.verified && (
+                              <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
+                                <Check size={12} className="mr-1" />
+                                Verified Purchase
+                              </span>
+                            )}
+                          </div>
+                          <h4 className="font-medium text-gray-900">{review.title}</h4>
+                          <p className="text-sm text-gray-500 mt-1">
+                            By {review.userName} on {review.date}
+                          </p>
+                          <p className="mt-2 text-gray-600">{review.comment}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-12">
+                      <p className="text-gray-500">No reviews yet. Be the first to review this product!</p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

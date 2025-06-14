@@ -21,21 +21,35 @@ export const products: Product[] = [
       { size: '100ml', price: 120, inStock: true },
     ],
     description: 'A unisex fragrance with neroli, orange blossom, and marshmallow notes.',
-    longDescription: 'K. LAMAR "NOT LIKE US" is a distinctive unisex fragrance from judi PERFUMERIE that combines the freshness of neroli and orange blossom with the sweet comfort of marshmallow. This unique scent creates a memorable impression that stands out from the crowd.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Citronellol, Geraniol, Benzyl Alcohol, Citral, Farnesol.',
-    scent: {
-      topNotes: ['Neroli'],
-      middleNotes: ['Orange Blossom'],
-      baseNotes: ['Marshmallow']
-    },
-    category: ['Unisex', 'Floral', 'Sweet'],
+    scent: 'Floral, Sweet, Unisex',
+    category: ['Unisex', 'Men', 'Floral', 'Sweet', 'Gourmand'],
     images: [
       pImage
     ],
     rating: 4.6,
     reviews: 78,
     bestseller: true,
-    selectedSize: undefined
+    selectedSize: null,
+    reviewsList: [
+      {
+        id: '1',
+        userName: 'Sarah M.',
+        rating: 5,
+        date: '2024-01-15',
+        title: 'Absolutely Amazing!',
+        comment: 'This fragrance is incredible! The perfect balance of floral and sweet notes. I get compliments every time I wear it.',
+        verified: true
+      },
+      {
+        id: '2',
+        userName: 'Ahmed K.',
+        rating: 4,
+        date: '2024-01-10',
+        title: 'Great Unisex Scent',
+        comment: 'Very versatile fragrance. The marshmallow note adds a unique touch. Good longevity too.',
+        verified: true
+      }
+    ]
   },
   {
     id: '2',
@@ -47,14 +61,8 @@ export const products: Product[] = [
       { size: '100ml', price: 180, inStock: true },
     ],
     description: 'A feminine fragrance with fruity notes of pineapple, strawberry, passionfruit, and tangerine.',
-    longDescription: 'GloRilla is a vibrant feminine fragrance from judi that celebrates the juicy sweetness of tropical fruits. This energetic scent combines pineapple, big strawberry, passionfruit, and tangerine, creating a playful and refreshing fragrance experience that brightens your day.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Citronellol, Geraniol, Benzyl Alcohol, Citral, Farnesol, Benzyl Benzoate.',
-    scent: {
-      topNotes: ['Pineapple', 'Tangerine'],
-      middleNotes: ['Big Strawberry', 'Passionfruit'],
-      baseNotes: ['Sweet Musk', 'Vanilla']
-    },
-    category: ['Fruity', 'Sweet', 'Feminine'],
+    scent: 'Fruity, Sweet, Feminine',
+    category: ['Women', 'Sweet', 'Fruity', 'Aquatic'],
     images: [
       rImage
     ],
@@ -62,7 +70,27 @@ export const products: Product[] = [
     reviews: 156,
     featured: true,
     bestseller: true,
-    selectedSize: undefined
+    selectedSize: null,
+    reviewsList: [
+      {
+        id: '1',
+        userName: 'Layla H.',
+        rating: 5,
+        date: '2024-01-20',
+        title: 'My New Favorite!',
+        comment: 'The fruity notes are so fresh and vibrant. Perfect for summer days. The scent lasts all day!',
+        verified: true
+      },
+      {
+        id: '2',
+        userName: 'Noor A.',
+        rating: 5,
+        date: '2024-01-18',
+        title: 'Worth Every Penny',
+        comment: 'This perfume is absolutely divine! The combination of fruits creates such a unique and beautiful scent.',
+        verified: true
+      }
+    ]
   },
   {
     id: '3',
@@ -73,22 +101,36 @@ export const products: Product[] = [
       { size: '50ml', price: 125, inStock: true },
       { size: '100ml', price: 180, inStock: true },
     ],
-    description: 'An alternative version of the GloRilla feminine fragrance with fruity notes.',
-    longDescription: 'This alternative version of GloRilla maintains the same vibrant fruity profile but with a slightly different presentation. The fragrance still features the signature blend of pineapple, big strawberry, passionfruit, and tangerine that made the original so popular.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Citronellol, Geraniol, Benzyl Alcohol, Citral, Farnesol, Benzyl Benzoate.',
-    scent: {
-      topNotes: ['Pineapple', 'Tangerine'],
-      middleNotes: ['Big Strawberry', 'Passionfruit'],
-      baseNotes: ['Sweet Musk', 'Vanilla']
-    },
-    category: ['Fruity', 'Sweet', 'Feminine'],
+     description: 'An alternative version of the GloRilla feminine fragrance with fruity notes.',
+     scent: 'Fruity, Sweet, Feminine',
+    category: ['Women', 'Fruity', 'Sweet'],
     images: [
       rrImage
     ],
     rating: 4.8,
     reviews: 120,
     bestseller: true,
-    selectedSize: undefined
+    selectedSize: null,
+    reviewsList: [
+      {
+        id: '1',
+        userName: 'Fatima R.',
+        rating: 5,
+        date: '2024-01-12',
+        title: 'Elegant and Long-lasting',
+        comment: 'This alternative version is just as amazing as the original. The fruity notes are perfectly balanced.',
+        verified: true
+      },
+      {
+        id: '2',
+        userName: 'Maha S.',
+        rating: 4,
+        date: '2024-01-08',
+        title: 'Beautiful Scent',
+        comment: 'Love how this perfume evolves throughout the day. Very elegant and feminine.',
+        verified: true
+      }
+    ]
   },
   {
     id: '4',
@@ -100,21 +142,35 @@ export const products: Product[] = [
       { size: '100ml', price: 130, inStock: true },
     ],
     description: 'A premium unisex fragrance with Nora Nord, Graugt Himm, and Marina den notes.',
-    longDescription: 'K. LAMAR "NOT LIKE US" (Alternative Version) is a premium unisex fragrance from judi PREMIUME that offers a sophisticated alternative to the original scent. This exclusive version features the unique combination of Nora Nord, Graugt Himm, and Marina den, creating a distinctive and refined fragrance experience.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Citronellol, Geraniol, Benzyl Alcohol, Citral.',
-    scent: {
-      topNotes: ['Nora Nord'],
-      middleNotes: ['Graugt Himm'],
-      baseNotes: ['Marina den']
-    },
-    category: ['Unisex', 'Premium', 'Exclusive'],
+    scent: 'Premium, Exclusive, Unisex',
+    category: ['Unisex', 'Men', 'Premium', 'Exclusive', 'Aromatic Fougère'],
     images: [
       sImage
     ],
     rating: 4.5,
     reviews: 64,
     new: true,
-    selectedSize: undefined
+    selectedSize: null,
+    reviewsList: [
+      {
+        id: '1',
+        userName: 'Omar K.',
+        rating: 5,
+        date: '2024-01-16',
+        title: 'Premium Quality',
+        comment: 'This alternative version has an amazing premium feel. The scent is unique and long-lasting.',
+        verified: true
+      },
+      {
+        id: '2',
+        userName: 'Zain M.',
+        rating: 4,
+        date: '2024-01-14',
+        title: 'Sophisticated Fragrance',
+        comment: 'A very sophisticated and exclusive scent. Perfect for special occasions.',
+        verified: true
+      }
+    ]
   },
   {
     id: '5',
@@ -126,21 +182,15 @@ export const products: Product[] = [
       { size: '100ml', price: 135, inStock: true },
     ],
     description: 'A feminine fragrance with saffron, orange blossom, jasmine, and lavender notes.',
-    longDescription: 'BATON ROUGE is an elegant feminine fragrance from judi PERFUMERIE that captures the essence of sophistication. This luxurious scent combines the warmth of saffron with the delicate beauty of orange blossom, jasmine, and lavender, creating a truly captivating fragrance experience.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Citronellol, Geraniol, Benzyl Alcohol, Citral, Farnesol.',
-    scent: {
-      topNotes: ['Saffron', 'Orange Blossom'],
-      middleNotes: ['Jasmine', 'Lavender', 'Orange Blossom'],
-      baseNotes: ['Ohmone1', 'Pin Raison', 'Amber']
-    },
-    category: ['Floral', 'Feminine', 'Elegant'],
+    scent: 'Floral, Feminine, Elegant',
+    category: ['Women', 'Floral', 'Elegant'],
     images: [
       wImage
     ],
     rating: 4.7,
     reviews: 89,
     bestseller: true,
-    selectedSize: undefined
+    selectedSize: null
   },
   {
     id: '6',
@@ -152,21 +202,15 @@ export const products: Product[] = [
       { size: '100ml', price: 155, inStock: true },
     ],
     description: 'A feminine fragrance inspired by YSL Libre.',
-    longDescription: 'LIBERTE is a captivating feminine fragrance from judi PREPUMERIE inspired by the iconic YSL Libre. This elegant scent embodies the spirit of freedom and femininity, creating a bold and sophisticated fragrance experience that makes a statement.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Citronellol, Geraniol, Benzyl Alcohol, Citral, Farnesol, Eugenol.',
-    scent: {
-      topNotes: ['Lavender', 'Mandarin Orange', 'Petitgrain'],
-      middleNotes: ['Orange Blossom', 'Jasmine', 'Blackcurrant'],
-      baseNotes: ['Vanilla', 'Musk', 'Amber']
-    },
-    category: ['Floral', 'Oriental', 'Feminine'],
+    scent: 'Floral, Oriental, Feminine',
+    category: ['Women', 'Floral', 'Oriental'],
     images: [
       yImage
     ],
     rating: 4.8,
     reviews: 102,
     featured: true,
-    selectedSize: undefined
+    selectedSize: null
   },
   {
     id: '7',
@@ -177,22 +221,16 @@ export const products: Product[] = [
       { size: '50ml', price: 95, inStock: true },
       { size: '100ml', price: 140, inStock: true },
     ],
-    description: 'A luxurious unisex fragrance with turmeric, bergamot, and jasmine notes.',
-    longDescription: 'WHISPERED is a sophisticated unisex fragrance from judi CERPUMERIE/PERTUMERIE that combines spicy top notes with floral middle notes and a warm, woody base. This elegant scent creates an aura of mystery and sophistication that lingers throughout the day.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Coumarin, Citronellol, Geraniol, Eugenol, Cinnamal.',
-    scent: {
-      topNotes: ['Turmeric', 'Bergamot', 'Pink Pepper', 'Ginger'],
-      middleNotes: ['Jasmine', 'Taborose', 'Osmanthus'],
-      baseNotes: ['Sandalwood', 'Musk', 'Incense']
-    },
-    category: ['Unisex', 'Spicy', 'Floral', 'Woody'],
+ description: 'A luxurious unisex fragrance with turmeric, bergamot, and jasmine notes.',
+  scent: 'Spicy, Floral, Woody',
+    category: ['Unisex', 'Men', 'Spicy', 'Floral', 'Woody', 'Mossy Woods'],
     images: [
       bImage
     ],
     rating: 4.8,
     reviews: 92,
     featured: true,
-    selectedSize: undefined
+    selectedSize: null
   },
   {
     id: '8',
@@ -204,21 +242,15 @@ export const products: Product[] = [
       { size: '100ml', price: 140, inStock: true },
     ],
     description: 'A jasmine-focused edition of the WHISPERED unisex fragrance.',
-    longDescription: 'WHISPERED (Jasmine Edition) emphasizes the jasmine notes of the original WHISPERED fragrance. This special edition maintains the same sophisticated profile but with a stronger emphasis on the floral middle notes, creating a slightly different but equally elegant fragrance experience.',
-    ingredients: 'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Benzyl Salicylate, Linalool, Limonene, Coumarin, Citronellol, Geraniol, Eugenol, Cinnamal.',
-    scent: {
-      topNotes: ['Turmeric', 'Bergamot', 'Pink Pepper', 'Ginger'],
-      middleNotes: ['Jasmine', 'Taborose', 'Osmanthus'],
-      baseNotes: ['Sandalwood', 'Musk', 'Incense']
-    },
-    category: ['Unisex', 'Spicy', 'Floral', 'Woody'],
+    scent: 'Spicy, Floral, Woody',
+    category: ['Unisex', 'Men', 'Spicy', 'Floral', 'Woody', 'Aromatic Fougère'],
     images: [
       jImage
     ],
     rating: 4.7,
     reviews: 85,
     new: true,
-    selectedSize: undefined
+    selectedSize: null
   }
 ];
 

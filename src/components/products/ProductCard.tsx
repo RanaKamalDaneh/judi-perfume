@@ -19,15 +19,38 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           />
         </div>
         
-        {product.new && (
-          <span className="absolute top-4 left-4 bg-black text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-            New
+        {/* Best Seller Badge */}
+        {product.bestseller && (
+          <span className="absolute top-4 right-4 bg-rose-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+            Best Seller
           </span>
         )}
-        
-        {product.bestseller && (
-          <span className="absolute top-4 right-4 bg-gold-600 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-            Bestseller
+
+        {/* New Arrival Badge */}
+        {product.new && (
+          <span className="absolute top-4 left-4 bg-amber-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+            New Arrival
+          </span>
+        )}
+
+        {/* Limited Edition Badge */}
+        {product.isLimited && (
+          <span className="absolute top-14 right-4 bg-blue-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+            Limited Edition
+          </span>
+        )}
+
+        {/* Editor's Choice Badge */}
+        {product.editorsChoice && (
+          <span className="absolute top-14 left-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+            Editor's Choice
+          </span>
+        )}
+
+        {/* Award Winner Badge */}
+        {product.awardWinner && (
+          <span className="absolute top-24 right-4 bg-emerald-500 text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+            Award Winner
           </span>
         )}
       </Link>

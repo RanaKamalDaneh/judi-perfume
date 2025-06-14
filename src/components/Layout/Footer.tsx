@@ -88,6 +88,31 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/products?category=Gourmand" className="text-gray-400 hover:text-white transition-colors">
+                  Gourmand
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?category=Aromatic-Fougere" className="text-gray-400 hover:text-white transition-colors">
+                  Aromatic Fougère
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?category=Chypre" className="text-gray-400 hover:text-white transition-colors">
+                  Chypre
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?category=Aquatic" className="text-gray-400 hover:text-white transition-colors">
+                  Aquatic
+                </Link>
+              </li>
+              <li>
+                <Link to="/products?category=Mossy-Woods" className="text-gray-400 hover:text-white transition-colors">
+                  Mossy Woods
+                </Link>
+              </li>
+              <li>
                 <Link to="/quiz" className="text-gray-400 hover:text-white transition-colors">
                   Find Your Scent
                 </Link>

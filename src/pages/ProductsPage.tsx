@@ -18,7 +18,7 @@ const ProductsPage: React.FC = () => {
   const mainCategories = ['Unisex', 'Women', 'Men'];
   
   // الفئات الفرعية
-  const subCategories = ['Floral', 'Oriental', 'Woody', 'Fresh', 'Citrus'];
+  const subCategories = ['Floral', 'Oriental', 'Woody', 'Fresh', 'Citrus', 'Gourmand', 'Aromatic Fougère', 'Chypre', 'Aquatic', 'Mossy Woods'];
   
   useEffect(() => {
     document.title = 'Shop All Perfumes | judi';
