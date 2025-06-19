@@ -111,6 +111,40 @@ const Hero: React.FC = () => {
                   loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20" />
+                
+                {/* Navigation Buttons */}
+                <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-4 z-20">
+                  <button
+                    onClick={() => setCurrentIndex((prevIndex) => (prevIndex - 1 + featuredPerfumes.length) % featuredPerfumes.length)}
+                    className="bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300"
+                    aria-label="Previous image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => setCurrentIndex((prevIndex) => (prevIndex + 1) % featuredPerfumes.length)}
+                    className="bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-300"
+                    aria-label="Next image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+                
+                {/* Dots Indicator */}
+                <div className="absolute bottom-16 left-0 right-0 flex justify-center space-x-2 z-20">
+                  {featuredPerfumes.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'}`}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </motion.div>
             </AnimatePresence>
           </motion.div>

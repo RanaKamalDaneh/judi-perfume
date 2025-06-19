@@ -63,10 +63,24 @@ const ProductsPage: React.FC = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="lg:grid lg:grid-cols-4 lg:gap-8">
           {/* Mobile Filter Toggle */}
-          <div className="lg:hidden flex justify-between items-center mb-6">
-            <h2 className="text-xl font-medium">
+          <div className="lg:hidden flex flex-wrap justify-between items-center mb-6">
+            <h2 className="text-xl font-medium mb-2 w-full">
               {filteredProducts.length} {filteredProducts.length === 1 ? 'Product' : 'Products'}
             </h2>
+            
+            {/* Gender filters */}
+            <div className="flex gap-2 mb-2">
+              {mainCategories.map(category => (
+                <button
+                  key={category}
+                  onClick={() => toggleFilter(category)}
+                  className={`px-3 py-1 rounded-full text-sm ${activeFilters.includes(category) ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700'}`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            
             <button
               onClick={() => setShowMobileFilters(true)}
               className="flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-md"
@@ -206,63 +220,29 @@ const ProductsPage: React.FC = () => {
                 </div>
               )}
               
-              {/* الفئات الرئيسية للموبايل */}
+              {/* Scent Types */}
               <div className="border-t border-gray-200 pt-6">
-                <h3 className="text-sm font-medium text-gray-700 mb-4">Gender</h3>
-                <div className="space-y-4">
-                  {mainCategories.map(category => (
-                    <div key={category} className="flex items-center">
-                      <input
-                        id={`mobile-category-${category}`}
-                        name={`mobile-category-${category}`}
-                        type="checkbox"
-                        className="h-5 w-5 rounded border-gray-300 text-gold-600 focus:ring-gold-500"
-                        checked={activeFilters.includes(category)}
-                        onChange={() => toggleFilter(category)}
-                      />
-                      <label
-                        htmlFor={`mobile-category-${category}`}
-                        className="ml-3 text-base text-gray-700"
-                      >
-                        {category}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* الفئات الفرعية للموبايل */}
-              <div className="border-t border-gray-200 pt-6 mt-6">
                 <h3 className="text-sm font-medium text-gray-700 mb-4">Scent Type</h3>
-                <div className="space-y-4">
+                <div className="space-y-2">
                   {subCategories.map(category => (
                     <div key={category} className="flex items-center">
                       <input
                         id={`mobile-category-${category}`}
                         name={`mobile-category-${category}`}
                         type="checkbox"
-                        className="h-5 w-5 rounded border-gray-300 text-gold-600 focus:ring-gold-500"
+                        className="h-4 w-4 rounded border-gray-300 text-gold-600 focus:ring-gold-500"
                         checked={activeFilters.includes(category)}
                         onChange={() => toggleFilter(category)}
                       />
                       <label
                         htmlFor={`mobile-category-${category}`}
-                        className="ml-3 text-base text-gray-700"
+                        className="ml-3 text-sm text-gray-700"
                       >
                         {category}
                       </label>
                     </div>
                   ))}
                 </div>
-              </div>
-              
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <button
-                  onClick={() => setShowMobileFilters(false)}
-                  className="w-full bg-gray-900 text-white py-3 rounded-md font-medium"
-                >
-                  View {filteredProducts.length} {filteredProducts.length === 1 ? 'Product' : 'Products'}
-                </button>
               </div>
             </div>
           )}

@@ -158,6 +158,12 @@ const Footer: React.FC = () => {
             </Link>
           </div>
         </div>
+        {/* Copyright and MINDX Link */}
+        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+          <a href="#" className="text-gray-400 hover:text-white transition-colors text-xs mt-2 inline-block">
+            Designed by MINDX
+          </a>
+        </div>
       </div>
     </footer>
   );
